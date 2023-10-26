@@ -1,6 +1,8 @@
 const express = require('express');
-const routes = require('./routes'); 
+const routes = require('./src/routes'); 
 const mongoose = require('mongoose');
+const cors = require("cors");
+
 const dbPath = 'mongodb://127.0.0.1:27017/elevator-app';
 
 
@@ -31,6 +33,8 @@ const hostname = 'localhost';
 
 //Assumes the client uses JSON format in the requests
 app.use(express.json());
+
+app.use(cors());
 
 //Mounts the router used to handle the elevator calls.
 app.use('/api', routes);

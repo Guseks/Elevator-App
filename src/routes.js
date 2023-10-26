@@ -23,7 +23,7 @@ router.put('/elevator/call', async (req, res)=>{
 
 //Sends all the elevators and their information back to the client. Used mainly for testing.
 router.get('/elevator/', async (req, res)=>{
-  let elevators = await elevatorManager.getAllElevators();
+  let elevators = await db.getAllElevators();
   res.send(elevators);
   res.end();
 });
