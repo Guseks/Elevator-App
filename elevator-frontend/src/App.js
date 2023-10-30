@@ -12,26 +12,34 @@ const App = () => {
   const [elevators, setElevators] = useState([]);
 
   useEffect(()=>{
-    axios.get("http://localhost:3000/api/elevator/")
-    .then((res) => {
-      const data = res.data;
-      console.log(data);
-      setElevators(data)
-    })
-    .catch(error => console.error("Something went wrong", error));
-  },[]);
+    const fetchElevatorState = async ()=>{
+      try {
+        const response = await axios.get("http://localhost:3000/api/elevator/")
+        const data = response.data;
+        setElevators(data);
+      }
+      catch (error){
+        console.error("Error fetching elevator states: ", error);
+      }
+      
 
+    };
 
-  const handleCallElevator = async(desiredFloor) => {
-     const response = await axios.put("http://localhost:3000/api/elevator/call", {floor: desiredFloor});
-     console.log(response.data);
-  }
+    fetchElevatorState();
+    const updateInterval = setInterval(fetchElevatorState, 1000);
+
+    return () => {
+      clearInterval(updateInterval);
+    };
+
+  },[elevators]);
 
   return (
     <div className='App'>
-      <Heading  headline = {'Elevator App'}/>
-      <ElevatorStatus elevators={elevators} />
-      <CallElevator handleCallElevator={handleCallElevator}/>
+      
+      <Heading headline = {'Elevator App'}/>
+      <ElevatorStatus elevators={elevators}/>
+      <CallElevator elevators={elevators}/>
     </div>
   )
 }

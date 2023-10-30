@@ -1,7 +1,13 @@
 import React from 'react'
 import "./elevatorStatus.css"
 
+
 const ElevatorStatus = ({elevators}) => {
+
+
+ 
+
+
   return (
     <div className='mb-3 w-75 container-status'>
       <h3 className='pt-2 px-2 text-decoration-underline'>Elevator Status</h3>

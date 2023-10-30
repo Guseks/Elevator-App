@@ -18,6 +18,7 @@ async function simulateElevatorMovement(){
 async function findNextMovement(elevator){
   if(elevator.currentFloor === elevator.destinationFloor){
     elevator.updateStatus('idle');
+    elevator.updateDestination(null);
     await db.updateElevatorInDatabase(elevator);
     setTimeout(async ()=>{
       const nextFloor = elevator.getNextQueuedFloor();

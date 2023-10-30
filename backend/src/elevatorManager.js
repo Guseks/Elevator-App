@@ -1,7 +1,8 @@
 const e = require("express");
 const EventEmitter = require('events');
 const db = require('./database');
-const elevatorMovement = require('./elevatorMovement')
+const elevatorMovement = require('./elevatorMovement');
+const { log } = require("console");
 
 class ElevatorManager extends EventEmitter{
   constructor() {
@@ -21,7 +22,6 @@ class ElevatorManager extends EventEmitter{
 
   async handleElevatorCall(req, res){
     const floor = req.body.floor;
-    
     this.removeAllListeners();
     
     const elevatorResult = await new Promise((resolve, reject) => {
