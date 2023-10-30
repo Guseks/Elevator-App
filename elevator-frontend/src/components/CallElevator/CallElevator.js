@@ -11,18 +11,15 @@ const CallElevator = ({elevators}) => {
 
   const topFloor = 10;
 
-
-  
   const handleCallElevator = async () => {
     formRef.current.reset();
     let errorMessage = "";
-    
-    console.log(floor);
+    const numberFloor = parseInt(floor, 10);
 
     if(floor === ""){
       errorMessage = "No floor provided.";
     }
-    else if(isNaN(parseInt(floor, 10))){
+    else if(isNaN(numberFloor)){
       errorMessage = "Provided floor is not a number";
     }
     else if(floor > topFloor){
@@ -34,8 +31,6 @@ const CallElevator = ({elevators}) => {
     }
     else {
       try {
-        
-        const numberFloor = parseInt(floor, 10);
         const response = await axios.put("http://localhost:3000/api/elevator/call", {floor: numberFloor});
 
         if(response.status === 200){
