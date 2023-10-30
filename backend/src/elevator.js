@@ -27,6 +27,12 @@ class Elevator {
     return this.queue.length;
   }
 
+  //Calculates distance to potential destination if not busy
+  calculateDistance(calledFloor) {
+    return Math.abs(calledFloor - this.currentFloor);
+  }
+
+  //Calculates total distance for elevator, current operation + the suggested call. 
   calculateTotalDistance(calledFloor){
     let distanceToDestination = Math.abs(this.destinationFloor - this.currentFloor);
     let distanceToRequestedFloor = Math.abs(calledFloor - this.destinationFloor);
