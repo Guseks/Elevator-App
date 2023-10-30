@@ -21,11 +21,17 @@ const App = () => {
     .catch(error => console.error("Something went wrong", error));
   },[]);
 
+
+  const handleCallElevator = async(desiredFloor) => {
+     const response = await axios.put("http://localhost:3000/api/elevator/call", {floor: desiredFloor});
+     console.log(response.data);
+  }
+
   return (
     <div className='App'>
       <Heading  headline = {'Elevator App'}/>
       <ElevatorStatus elevators={elevators} />
-      <CallElevator />
+      <CallElevator handleCallElevator={handleCallElevator}/>
     </div>
   )
 }
