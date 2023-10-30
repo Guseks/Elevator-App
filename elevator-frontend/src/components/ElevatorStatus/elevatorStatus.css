@@ -6,8 +6,18 @@
 }
 
 
-.status, .destination-floor, .next-call {
-  margin-left: 50px;
+.status{
+  width: 200px;
+}
+.next-call {
+  width: 150px;
+}
+.destination-floor {
+  width: 200px;
+}
+
+.current-floor {
+  width: 160px;
 }
 
 .elevator-info {

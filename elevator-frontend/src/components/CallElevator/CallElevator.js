@@ -2,16 +2,16 @@ import React, { useRef, useState } from 'react'
 import "./callElevator.css"
 import axios from 'axios';
 
-const CallElevator = ({elevators}) => {
+const CallElevator = () => {
 
   const [alert, setAlert] = useState("");
-  const [floor, setFloor] = useState("")
   const [inputError, setInputError] = useState("");
   const formRef = useRef();
+  const floorRef = useRef();
 
   const topFloor = 10;
 
-  const handleCallElevator = async () => {
+  const handleCallElevator = async (floor) => {
     formRef.current.reset();
     let errorMessage = "";
     const numberFloor = parseInt(floor, 10);
@@ -55,7 +55,14 @@ const CallElevator = ({elevators}) => {
       setTimeout(()=> setInputError(""), 2000);
     }
     
-    setFloor("");
+    
+    
+  }
+
+
+  const handleCallElevatorButton = async () => {
+    const inputValue = floorRef.current.value;
+    await handleCallElevator(inputValue);
     
   }
 
@@ -65,9 +72,9 @@ const CallElevator = ({elevators}) => {
       
       <form ref={formRef} onSubmit={(e) => e.preventDefault()}>
         <div className='d-flex input-container'>
-          <input className="form-control w-75" placeholder='Input number of desired floor' type="text" onChange={(e)=> setFloor(e.target.value)} />
+          <input ref={floorRef} className="form-control w-75" placeholder='Input number of desired floor' type="text" />
           <button className="btn btn-secondary" onClick={()=> {
-            handleCallElevator(); }}>Call Elevator
+            handleCallElevatorButton(); }}>Call Elevator
           </button>
         </div>
       </form>

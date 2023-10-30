@@ -39,7 +39,7 @@ const App = () => {
       
       <Heading headline = {'Elevator App'}/>
       <ElevatorStatus elevators={elevators}/>
-      <CallElevator elevators={elevators}/>
+      <CallElevator />
     </div>
   )
 }
