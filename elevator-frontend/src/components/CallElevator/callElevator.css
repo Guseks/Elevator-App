@@ -1,5 +1,5 @@
 .call-elevator-container {
-  height: 100px;
+  height: 120px;
   background-color: rgb(240,240,240);
   padding: 10px 20px;
   border-radius: 10px;
@@ -7,14 +7,26 @@
   box-shadow: 1px 1px 1px 1px rgb(230,230,230);
   display: flex;
   align-items: center;
-  justify-content: center;
-
   
 }
 
 .btn {
   font-weight: 500;
   font-size: 20px;
+  height: 45px;
+  align-items: center;
+  display: flex;
+  padding: 10px 15px;
+}
+
+.input-container {
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-control {
+  height: 45px;
 }
 
 
