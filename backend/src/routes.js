@@ -1,5 +1,6 @@
 const express = require("express");
 const ElevatorManager = require("./elevatorManager");
+const db = require("./database")
 
 const router = express.Router();
 const elevatorManager = new ElevatorManager();
