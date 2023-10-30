@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Heading from './components/Heading/Heading';
 import ElevatorStatus from './components/ElevatorStatus/ElevatorStatus';
+import CallElevator from './components/CallElevator/CallElevator'
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
     <div className='App'>
       <Heading  headline = {'Elevator App'}/>
       <ElevatorStatus elevators={elevators} />
+      <CallElevator />
     </div>
   )
 }
