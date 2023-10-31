@@ -13,5 +13,20 @@ body {
 
 }
 
+.alert {
+  font-weight: 500;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.alert-success {
+  background-color: rgb(164, 250, 94);
+}
 
+.alert-danger {
+  background-color: rgb(247, 7, 7);
+  color: white;
+  border-color: rgb(247, 7, 7);
+}
 

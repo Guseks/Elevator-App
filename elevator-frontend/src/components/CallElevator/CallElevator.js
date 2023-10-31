@@ -1,11 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import "./callElevator.css"
 import axios from 'axios';
 
-const CallElevator = () => {
+const CallElevator = ({setSuccessAlert, setErrorAlert}) => {
 
-  const [alert, setAlert] = useState("");
-  const [inputError, setInputError] = useState("");
   const formRef = useRef();
   const floorRef = useRef();
 
@@ -17,7 +15,7 @@ const CallElevator = () => {
     const numberFloor = parseInt(floor, 10);
 
     if(floor === ""){
-      errorMessage = "No floor provided.";
+      errorMessage = "No floor provided";
     }
     else if(isNaN(numberFloor)){
       errorMessage = "Provided floor is not a number";
@@ -26,7 +24,7 @@ const CallElevator = () => {
       errorMessage = "Provided floor is not available";
     }
     else if(floor < 1){
-      errorMessage ="Lowest floor is 1, invalid floor number.";
+      errorMessage ="Lowest floor is 1, invalid floor number";
       
     }
     else {
@@ -35,13 +33,13 @@ const CallElevator = () => {
 
         if(response.status === 200){
           if(response.data.message === "Elevator already there"){
-            setAlert(`There is already an elevator at floor ${floor}`);
+            setSuccessAlert(`There is already an elevator at floor ${floor}`);
           }
           else {
-            setAlert("Elevator Called");
+            setSuccessAlert("Elevator Called");
           }
           setTimeout(()=> {
-            setAlert("");
+            setSuccessAlert("");
           }, 3000);
         }
         
@@ -51,8 +49,8 @@ const CallElevator = () => {
       }
     }
     if(errorMessage){
-      setInputError(errorMessage);
-      setTimeout(()=> setInputError(""), 2000);
+      setErrorAlert(errorMessage);
+      setTimeout(()=> setErrorAlert(""), 2000);
     }
     
     
@@ -79,12 +77,7 @@ const CallElevator = () => {
         </div>
       </form>
         
-      {alert && 
-        <div className='alert alert-success' role='alert'>
-          {alert}
-        </div>
-      }
-      {inputError && <div className='alert alert-danger'>{inputError}</div>}
+     
     </div>
   )
 }

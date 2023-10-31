@@ -11,6 +11,9 @@ const App = () => {
 
   const [elevators, setElevators] = useState([]);
 
+  const [successAlert, setSuccessAlert] = useState("")
+  const [errorAlert, setErrorAlert] = useState("")
+
   useEffect(()=>{
     const fetchElevatorState = async ()=>{
       try {
@@ -39,7 +42,9 @@ const App = () => {
       
       <Heading headline = {'Elevator App'}/>
       <ElevatorStatus elevators={elevators}/>
-      <CallElevator />
+      <CallElevator setSuccessAlert={setSuccessAlert} setErrorAlert={setErrorAlert} />
+      {successAlert && <div className='alert alert-success w-50' role='alert'>{successAlert}</div>}
+      {errorAlert && <div className='alert alert-danger' role='alert'>{errorAlert}</div>}
     </div>
   )
 }

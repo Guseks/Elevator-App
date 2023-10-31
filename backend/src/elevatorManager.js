@@ -138,8 +138,9 @@ class ElevatorManager extends EventEmitter{
   findClosestElevator(floor, elevators){
     let closestDistance = 2000;
     let elevatorToCall;
+    let distance;
     for (let elevator of elevators) {
-      let distance;
+      
       if(elevator.status === "idle"){
         distance = elevator.calculateDistance(floor);
       }

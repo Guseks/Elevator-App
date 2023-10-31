@@ -1,5 +1,5 @@
 .call-elevator-container {
-  height: 180px;
+  height: 120px;
   background-color: rgb(240,240,240);
   padding: 10px 20px;
   border-radius: 10px;
@@ -7,7 +7,7 @@
   box-shadow: 1px 1px 1px 1px rgb(230,230,230);
   display: flex;
   align-items: center;
-  
+  margin-bottom: 10px;
 }
 
 .btn {
@@ -30,10 +30,4 @@
   height: 45px;
 }
 
-.alert {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  width: 300px;
-}
+
