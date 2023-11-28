@@ -1,10 +1,11 @@
 const ElevatorModel = require('./elevatorModel');
 const Elevator = require('./elevator');
+const mongoose = require('mongoose');
 
 async function updateElevatorInDatabase(elevator){
   try {
-    const {id, currentFloor, status, destinationFloor, queue} = elevator;
-    const query = {id: id};
+    const {elevator_id, currentFloor, status, destinationFloor, queue} = elevator;
+    const query = {elevator_id: elevator_id};
     await ElevatorModel.findOneAndUpdate(query, {
       $set: {
         currentFloor: currentFloor,
@@ -24,8 +25,8 @@ async function getAllElevators(){
   try {
     const data = await ElevatorModel.find();
     for (const elevatorData of data){
-      const { id, currentFloor, status, destinationFloor, queue } = elevatorData;
-      elevators.push(new Elevator(id, currentFloor, status, destinationFloor, queue));
+      const { elevator_id, currentFloor, status, destinationFloor, queue } = elevatorData;
+      elevators.push(new Elevator(elevator_id, currentFloor, status, destinationFloor, queue));
     }
     return elevators;
   }
@@ -35,4 +36,9 @@ async function getAllElevators(){
   
 }
 
-module.exports = {getAllElevators, updateElevatorInDatabase};
+function shutdown(){
+  mongoose.disconnect();
+  console.log("Disconnected from MongoDB database");
+}
+
+module.exports = {getAllElevators, updateElevatorInDatabase, shutdown};

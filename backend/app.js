@@ -23,8 +23,6 @@ db.once('open', () => {
 });
 
 
-
-
 // ------- Starting application ----------
 
 const app = express();

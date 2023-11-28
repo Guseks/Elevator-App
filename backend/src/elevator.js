@@ -1,6 +1,6 @@
 class Elevator {
-  constructor(id, currentFloor, status, destinationFloor, queue) {
-    this.id = id;
+  constructor(elevator_id, currentFloor, status, destinationFloor, queue) {
+    this.elevator_id = elevator_id;
     this.currentFloor = currentFloor || 1;
     this.status = status || 'idle'; 
     this.destinationFloor = destinationFloor || null; 

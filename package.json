@@ -1,5 +1,5 @@
 {
-
+  "name": "elevator-app-mongodb",
   "private": true,
   "workspaces": ["backend", "elevator-frontend"],
   "scripts": {

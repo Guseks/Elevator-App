@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const elevatorSchema = mongoose.Schema({
-  id: Number,
+  elevator_id: Number,
   currentFloor: Number,
   status: String,
   destinationFloor: Number,

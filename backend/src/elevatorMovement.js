@@ -11,6 +11,13 @@ async function simulateElevatorMovement(){
       elevator.currentFloor--;
       findNextMovement(elevator);
     }
+    if(elevator.status === 'idle' && elevator.getQueueLength() !== 0){
+      const nextFloor = elevator.getNextQueuedFloor();  
+      const status = nextFloor > elevator.currentFloor ? 'moving_up': 'moving_down';
+      elevator.updateDestination(nextFloor);
+      elevator.updateStatus(status);
+      findNextMovement(elevator);
+    }
     
   });
 }

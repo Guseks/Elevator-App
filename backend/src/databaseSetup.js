@@ -27,8 +27,9 @@ db.once('open', async () => {
       const numberOfElevators = 3;
       const startData = [];
       for(let i = 1; i<= numberOfElevators; i++){
-        startData.push(new Elevator());
+        startData.push(new Elevator(i));
       }
+      console.log(startData);
 
 
 
