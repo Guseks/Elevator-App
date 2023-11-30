@@ -1,8 +1,8 @@
-const e = require("express");
+
 const EventEmitter = require('events');
 const db = require('./database');
 const elevatorMovement = require('./elevatorMovement');
-const { log } = require("console");
+
 
 class ElevatorManager extends EventEmitter{
   constructor() {
