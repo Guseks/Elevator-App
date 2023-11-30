@@ -26,7 +26,7 @@ router.put('/elevator/call', async (req, res)=>{
 //Sends all the elevators and their information back to the client.
 router.get('/elevator/', async (req, res)=>{
   let elevators = await db.getAllElevators();
-  res.send(elevators);
+  res.status(200).send(elevators);
   res.end();
 });
 
