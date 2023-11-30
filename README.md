@@ -1,4 +1,4 @@
-# StarWars API
+# Elevator-App-MongoDB
 
 An application managing a fleet of elevators. The app is built using Node.js and utilizes MongoDB for data storage. It allows tracking elevator movements, handling elevator calls, and maintaining the state of each elevator.
 
@@ -21,6 +21,14 @@ Run the following command in your terminal.
 npm install
 
 ```
+
+#### Install MongoDB
+To install MongdoDB on your system navigate to this page: `https://www.mongodb.com/try/download/community`.  
+Pick the version matching your operating system and pick version 7.0.1 
+
+All other interactions with the database is handled through mongoose library.
+
+#### Starting the application
 After installation is complete. Start the application by running the following command in the root folder of the project in your terminal.
 
 ```bash
@@ -28,11 +36,7 @@ After installation is complete. Start the application by running the following c
 npm start
 ```
 
-#### Install MongoDB
-To install MongdoDB on your system navigate to this page: `https://www.mongodb.com/try/download/community`.  
-Pick the version matching your operating system and pick version 7.0.1 
 
-All other interactions with the database is handled through mongoose library.
 ## Backend - API Endpoints
 
 ### Get All Elevators
