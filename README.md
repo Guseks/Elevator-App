@@ -62,7 +62,7 @@ npm start
 
 ## Frontend
 
-<img src="images/frontend-overview.png" alt="Frontend Screenshot" width="850" height="400">
+<img src="Images/frontend-overview.png" alt="Frontend Screenshot" width="850" height="400">
 
 The frontend consists of two components:
 - A display of the current status of the elevators in the system
